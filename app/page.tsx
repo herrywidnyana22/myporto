@@ -10,8 +10,9 @@ import { Terminal } from "@/windows/terminal";
 import { Text } from "@/windows/text";
 import { Img } from "@/windows/img";
 import { Contact } from "@/windows/contact";
+import { Home } from "@/components/home";
 
-export default function Home() {
+export default function Page() {
   return (
     <main>
       <Navbar/>
@@ -25,6 +26,7 @@ export default function Home() {
       <Text/>
       <Img/>
       <Contact/>
+      <Home/>
     </main>
   );
 }

@@ -2,11 +2,12 @@
 
 import gsap from 'gsap';
 import Image from "next/image";
+import useWindowStore from '@/store/window';
+
 import { dockApps } from "@/lib/constant";
 import { useRef } from "react";
 import { Tooltip } from "react-tooltip";
 import { useGSAP } from "@gsap/react";
-import useWindowStore from '@/store/window';
 
 export const Dock = () => {
     const { openWindow, closeWindow, windows } = useWindowStore()

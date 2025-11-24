@@ -1,5 +1,3 @@
-'use client'
-
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
@@ -23,9 +21,8 @@ const TextRender = ({text, className, weight=400}: TextRenderProps) =>{
 export const setHoverText: SetHoverText = (container, type) => {
     if (!container) return;
 
-    const letters = container.querySelectorAll("span");
-
-    const { min, max, base } = FONT_WEIGHTS[type];
+    const letters = container.querySelectorAll('span');
+    const { min, max, base } = FONT_WEIGHTS[type];    
 
     const animateLetter = (
         letter: HTMLSpanElement,
@@ -48,12 +45,15 @@ export const setHoverText: SetHoverText = (container, type) => {
 
             const distance = Math.abs(mouseX - (letterLeft - containerLeft + width / 2));
             const intensity = Math.exp(-(distance ** 2) / 2000);
-
-            animateLetter(letter, min + (max - min) * intensity);
+            const weight = min + (max - min) * intensity
+            
+            animateLetter(letter, weight);
         });
     };
 
-  const onMouseLeave = () => letters.forEach((letter) => animateLetter(letter, base, 0.3))
+  const onMouseLeave = () => {
+    letters.forEach((letter) => animateLetter(letter, base, 0.3))
+  }
   
 
   container.addEventListener("mousemove", onMouseMove);
@@ -66,18 +66,15 @@ export const setHoverText: SetHoverText = (container, type) => {
 };
 
 export const Welcome = () => {
-    const titleRef = useRef<HTMLHeadingElement | null>(null);
-    const subTitleRef = useRef<HTMLParagraphElement | null>(null);
+    const titleRef = useRef(null);
+    const subTitleRef = useRef(null);
 
 
     useGSAP(() => {
-        const titleClean = setHoverText(titleRef.current, "title");
-        const subTitleClean = setHoverText(subTitleRef.current, "subtitle");
-
-        return () => {
-           titleClean && titleClean();
-           subTitleClean && subTitleClean()
-        }
+        
+           setHoverText(titleRef.current, "title");
+           setHoverText(subTitleRef.current, "subtitle");
+        
     }, [])
 
     return ( 

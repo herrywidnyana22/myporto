@@ -496,6 +496,6 @@ export const WINDOW_CONFIG = {
 
 
 export const FONT_WEIGHTS:FontWeightMap  = {
+    title: {min: 400, max: 900, base: 400},
     subtitle: {min: 100, max: 400, base: 100},
-    title: {min: 400, max: 900, base: 400}
 }

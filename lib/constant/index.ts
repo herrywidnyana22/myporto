@@ -39,38 +39,38 @@ export const dockApps = [
   {
     id: "finder",
     name: "Portfolio", // was "Finder"
-    icon: "finder.png",
-    canOpen: true,
+    iconSrc: "/images/finder.png",
+    isOpen: false,
   },
   {
     id: "safari",
     name: "Articles", // was "Safari"
-    icon: "safari.png",
-    canOpen: true,
+    iconSrc: "/images/safari.png",
+    isOpen: false,
   },
   {
     id: "photos",
     name: "Gallery", // was "Photos"
-    icon: "photos.png",
-    canOpen: true,
+    iconSrc: "/images/photos.png",
+    isOpen: false,
   },
   {
     id: "contact",
     name: "Contact", // or "Get in touch"
-    icon: "contact.png",
-    canOpen: true,
+    iconSrc: "/images/contact.png",
+    isOpen: false,
   },
   {
     id: "terminal",
     name: "Skills", // was "Terminal"
-    icon: "terminal.png",
-    canOpen: true,
+    iconSrc: "/images/terminal.png",
+    isOpen: false,
   },
   {
     id: "trash",
     name: "Archive", // was "Trash"
-    icon: "trash.png",
-    canOpen: false,
+    iconSrc: "/images/trash.png",
+    isOpen: false,
   },
 ];
 
@@ -480,9 +480,9 @@ export const locations = {
   trash: TRASH_LOCATION,
 };
 
-const INITIAL_Z_INDEX = 1000;
+export const INITIAL_Z_INDEX = 1000;
 
-const WINDOW_CONFIG = {
+export const WINDOW_CONFIG = {
   finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
@@ -491,6 +491,11 @@ const WINDOW_CONFIG = {
   terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  trash: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };
 
-export { INITIAL_Z_INDEX, WINDOW_CONFIG };
+
+export const FONT_WEIGHTS:FontWeightMap  = {
+    subtitle: {min: 100, max: 400, base: 100},
+    title: {min: 400, max: 900, base: 400}
+}

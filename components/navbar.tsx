@@ -2,9 +2,11 @@ import Image from "next/image";
 import dayjs from "dayjs";
 
 import { navLinks, navUtilsIcons } from "@/lib/constant";
-
+import userWindowStore from "@/store/window";
 
 export const Navbar = () => {
+    const {openWindow} = userWindowStore()
+
     return ( 
         <nav>
             <div>
@@ -14,11 +16,14 @@ export const Navbar = () => {
                     height={14}
                     width={14}
                 />
-                <p>Herry Widnyana</p>
+                <p className="font-bold">Herry Widnyana</p>
 
                 <ul>
-                    {navLinks.map(({id, name}) => (
-                        <li key={id}>
+                    {navLinks.map(({id, name, type}) => (
+                        <li 
+                            key={id}
+                            onClick={() => openWindow(type)}
+                        >
                             <p>{name}</p>
                         </li>
                     ))}
